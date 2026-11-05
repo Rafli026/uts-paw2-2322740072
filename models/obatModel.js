@@ -41,3 +41,16 @@ const obatSchema = new mongoose.Schema({
   kemasan: {
     type: kemasanSchema,
     required: [true, 'Kemasan wajib diisi'],
+    },
+  pemasokId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Pemasok',
+    required: [true, 'Pemasok wajib dipilih'],
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
+});
+
+module.exports = mongoose.model('Obat', obatSchema);
